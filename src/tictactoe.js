@@ -13,6 +13,7 @@ export default {
                 }
             },
     gameover: false,
+    velha: false,
     winning_sequences: [
                         [0,1,2],
                         [3,4,5],
@@ -42,7 +43,21 @@ export default {
             return true;
         }
         else {
-            return false;
+            if (
+                this.board[0] !== '' && 
+                this.board[1] !== '' &&
+                this.board[2] !== '' &&
+                this.board[3] !== '' &&
+                this.board[4] !== '' &&
+                this.board[5] !== '' &&
+                this.board[6] !== '' &&
+                this.board[7] !== '' &&
+                this.board[8] !== ''
+            ) {
+                this.game_is_velha();
+            } else {
+                return false;
+            }
         }
     },
 
@@ -64,8 +79,14 @@ export default {
         console.log('GAME OVER');
     },
 
+    game_is_velha: function() {
+        this.velha = true;
+        console.log('DEU VELHA')
+    },
+
     start: function() {
         this.board.fill('');
-        this.gameover = false;       
+        this.gameover = false;
+        this.velha = false;     
     },
 }; 

@@ -13,7 +13,8 @@ export default class App extends Component<Props> {
 
     this.state = {
       board: tictactoe.board,
-      gameOver: tictactoe.gameover
+      gameOver: tictactoe.gameover,
+      velha: tictactoe.velha
     }
   }
 
@@ -22,12 +23,13 @@ export default class App extends Component<Props> {
 
     this.setState({
       board: tictactoe.board,
-      gameOver: tictactoe.gameover
+      gameOver: tictactoe.gameover,
+      velha: tictactoe.velha
     });
   }
 
   resetar() {
-    if(this.state.gameOver === true) {
+    if(this.state.gameOver === true || this.state.velha === true) {
       tictactoe.start();
     }
   }
@@ -38,6 +40,21 @@ export default class App extends Component<Props> {
         <View style={styles.content}>
           <Text style={styles.congrats}>
             Parabéns, você venceu!! Receba seu beijinho de prêmio!
+          </Text>
+          <TouchableOpacity onPress={this.resetar()} style={styles.button}>
+            <Text style={{ color: '#F5F5F5' }}>Resetar</Text>
+          </TouchableOpacity>
+        </View>
+      )
+    }
+  }
+
+  isVelha() {
+    if(this.state.velha === true) {
+      return (
+        <View style={styles.content}>
+          <Text style={styles.congrats}>
+            Deu velha.. Tô falando, você não consegue ganhar de mim
           </Text>
           <TouchableOpacity onPress={this.resetar()} style={styles.button}>
             <Text style={{ color: '#F5F5F5' }}>Resetar</Text>
@@ -73,6 +90,7 @@ export default class App extends Component<Props> {
           ))}
         </View>
         {this.isGameOver()}
+        {this.isVelha()}
       </View>
     );
   }
