@@ -1,12 +1,9 @@
-import benda1 from './assets/benda1.jpg'
-import jaque2 from './assets/jaque2.jpeg'
-
 export default {
 
     // ATTRIBUTES
     board: ['','','','','','','','',''],
     simbols: {
-                options: [benda1,jaque2],
+                options: ['X', 'O'],
                 turn_index: 0,
                 change: function(){
                     this.turn_index = ( this.turn_index === 0 ? 1:0 );

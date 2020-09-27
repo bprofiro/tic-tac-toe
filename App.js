@@ -39,7 +39,7 @@ export default class App extends Component<Props> {
       return (
         <View style={styles.content}>
           <Text style={styles.congrats}>
-            Parabéns, você venceu!! Receba seu beijinho de prêmio!
+            Parabéns, você venceu!!
           </Text>
           <TouchableOpacity onPress={this.resetar()} style={styles.button}>
             <Text style={{ color: '#F5F5F5' }}>Resetar</Text>
@@ -54,7 +54,7 @@ export default class App extends Component<Props> {
       return (
         <View style={styles.content}>
           <Text style={styles.congrats}>
-            Deu velha.. Tô falando, você não consegue ganhar de mim
+            Deu velha..
           </Text>
           <TouchableOpacity onPress={this.resetar()} style={styles.button}>
             <Text style={{ color: '#F5F5F5' }}>Resetar</Text>
@@ -70,12 +70,11 @@ export default class App extends Component<Props> {
         <StatusBar style="auto" />
 
         <Text style={styles.title}>
-          Jogo da velha não:
-          Jogo dos nenês!
+          Jogo da velha
         </Text>
 
         <Text style={styles.description}>
-          Um jogo pra mostrar que até no jogo da velha eu ganho de você
+          Desafie os seus amigos e mostre quem é o melhor!
         </Text>
 
         <View style={styles.game}>
@@ -85,7 +84,7 @@ export default class App extends Component<Props> {
               style={styles.piece}
               onPress={() => {this.makePlay(index)}}
             >
-              <Image style={styles.pieceImage} source={value} />
+              <Text style={styles.value}>{value}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -121,10 +120,9 @@ const styles = StyleSheet.create({
     borderColor: '#6648C4',
     borderRadius: 15,
   },
-  pieceImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 20,
+  value: {
+    color: 'red',
+    fontSize: 80
   },
   title: {
     fontSize: 35,
