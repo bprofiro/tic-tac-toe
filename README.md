@@ -103,7 +103,7 @@ $ npm start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Mobile**  ([AdonisJS](https://adonisjs.com/)
+#### **Mobile**
 
 -   **[React Native](https://reactnative.dev/)**
 -   **[Expo](https://expo.io/)**
